@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div style="background-color: lightgreen; padding : 20px">
+
+        <h1>DateTime Picker</h1>
+        <form>
+            <section>
+                <label for="datefrom">From</label>
+                <input type="datetime-local" id="datefrom" name="datefrom">
+            </section>
+            <section>
+                <label for="dateuntil">Until</label>
+                <input type="datetime-local" id="dateuntil" name="dateuntil">
+            </section>
+            <br>
+            <input type="submit" id="submit" name="submit">
+        </form>
+        
+    </div>
+
+    <div style="height: 50px">
+
+    </div>
+
+    <div style="background-color: lightblue; padding: 20px">
+        <h1>Text Input</h1>
+        <form>
+            <section>
+                <label for="date-text">Date</label>
+                <input type="text" id="date-text" name="date-text" value="220210">
+            </section>
+            <section>
+                <label for="timefrom-text">From</label>
+                <input type="text" id="timefrom-text" name="timefrom-text" value="0900">
+            </section>
+            <section>
+                <label for="timeuntil-text">Until</label>
+                <input type="text" id="timeuntil-text" name="timeuntil-text" value="1120">
+            </section>
+            <br>
+            <input type="submit" id="submit-text" name="submit-text">
+        </form>
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.7/dayjs.min.js"></script>
+    <script src="./dayjstesting.js"></script>
+
+</body>
+</html>

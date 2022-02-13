@@ -28,7 +28,7 @@
                                     <label>Date</label>
                                 </div>
                                 <div class="col-sm-9">
-                                    <input type="text" id="input-date" value="220111"/>
+                                    <input type="text" id="input-date"/>
                                 </div>
                             </div>
                             <div class="row">
@@ -36,7 +36,7 @@
                                     <label>From</label>
                                 </div>
                                 <div class="col-sm-9">
-                                    <input type="text" id="input-from" value="0900"/>
+                                    <input type="text" id="input-from"/>
                                 </div>
                             </div>
                             <div class="row">
@@ -44,7 +44,7 @@
                                     <label>Until</label>
                                 </div>
                                 <div class="col-sm-9">
-                                    <input type="text" id="input-until" value="1140"/>
+                                    <input type="text" id="input-until"/>
                                 </div>
                             </div>
                             <div class="row">
@@ -52,7 +52,7 @@
                                     <label>Location</label>
                                 </div>
                                 <div class="col-sm-9">
-                                    <input type="text" id="input-location" value="T"/>
+                                    <input type="text" id="input-location" value="Home"/>
                                 </div>
                             </div>
                         </form>
@@ -61,7 +61,7 @@
 
                     <div class="col-sm-4 bg-primary">
                         
-                        <form>
+                        <form id="form-right">
                             <div class="row">
                                 <div class="col-sm-2">
                                     <label>Work</label>
@@ -92,30 +92,15 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>Date</th>
-                                    <th>From</th>
-                                    <th>Until</th>
-                                    <th>Location</th>
-                                    <th>Work</th>
+                                    <th style="width: 100px">Date</th>
+                                    <th style="width: 70px">From</th>
+                                    <th style="width: 70px">Until</th>
+                                    <th style="width: 70px">Duration</th>
+                                    <th style="width: 350px">Work</th>
+                                    <th style="width: 50px">Location</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>11/01/2022</td>
-                                    <td>0900</td>
-                                    <td>1000</td>
-                                    <td>Home</td>
-                                    <td>Testen</td>
-                                    <td><button type="button" class="btn btn-primary">Select</button></td>
-                                </tr>
-                                <tr>
-                                    <td>11/01/2022</td>
-                                    <td>1020</td>
-                                    <td>1450</td>
-                                    <td>Home</td>
-                                    <td>Updaten</td>
-                                    <td><button type="button" class="btn btn-primary">Select</button></td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -125,7 +110,7 @@
     </div>
 
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.7/dayjs.min.js"></script>
     <script src="script.js"></script>
     <!-- Optional JavaScript; choose one of the two! -->
 
