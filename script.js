@@ -1,5 +1,6 @@
 //selectors
 const inputSaveButton = document.querySelector('#input-save-btn');
+const timeRecordsTable = document.querySelector('.table');
 
 
 //data states
@@ -51,10 +52,8 @@ function submitRecord (event) {
         } else {
             console.log('unvalid input');
         }    
-    
-        //event.target.parentElement.parentElement.parentElement.reset();
-        //event.target.parentElement.parentElement.parentElement.reset();
-        //event.target.parentElement.parentElement.parentElement.parentElement.parentElement.firstElementChild.firstElementChild.reset();
+        
+        //reset the forms
         const leftForm = document.querySelector('#form-left');
         const rightForm = document.querySelector('#form-right');
         leftForm.reset();
@@ -72,7 +71,9 @@ function saveTimeRecord (from, until, duration, location, workdescription) {
         Workdescription: workdescription
     };
     myTimeRecords.push(timeRecord);
-    displayTimeRecords();
+    //displayTimeRecords();
+    // fire off a custom event that will tell anyone else who cares that the items have been updated!
+    timeRecordsTable.dispatchEvent(new CustomEvent('recordsUpdated'));
 }
 
 function calcDuration(from, until){
@@ -103,7 +104,7 @@ function displayTimeRecords(){
                 <td>${dayjs(record.From).format('HH:mm')}</td>
                 <td>${dayjs(record.Until).format('HH:mm')}</td>
                 <td>${record.Duration}</td>
-                <td>${record.Workdescription}</td>
+                <td style="white-space:pre">${record.Workdescription}</td>
                 <td>${record.Location}</td>
             </tr>`
         ).join('');
@@ -111,5 +112,24 @@ function displayTimeRecords(){
     tableBody.innerHTML = html;
 }
 
+function mirrorToLocalStorage(){
+    console.log('saving items to localstorage');
+    localStorage.setItem('timerecords', JSON.stringify(myTimeRecords));
+}
+
+function restoreFromLocalStorage(){
+    console.log('restoring from localstorage');
+    const lsRecords = JSON.parse(localStorage.getItem('timerecords'));
+    console.log(lsRecords);
+    if(lsRecords.length){
+        myTimeRecords.push(...lsRecords);
+    };
+    timeRecordsTable.dispatchEvent(new CustomEvent('recordsUpdated'));
+}
+
 //event handlers
 inputSaveButton.addEventListener('click', submitRecord);
+timeRecordsTable.addEventListener('recordsUpdated', displayTimeRecords);
+timeRecordsTable.addEventListener('recordsUpdated', mirrorToLocalStorage);
+
+restoreFromLocalStorage();
